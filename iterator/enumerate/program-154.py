@@ -1,0 +1,15 @@
+names_list=['naresh','ramesh','suresh','rajesh','kishore']
+e=enumerate(names_list,1)
+s1=next(e)
+s2=next(e)
+s3=next(e)
+s4=next(e)
+s5=next(e)
+print(s1,s2,s3,s4,s5,sep='\n')
+sales_list=[45000,55000,65000,35000]
+e=enumerate(sales_list,2021)
+sales1=next(e)
+sales2=next(e)
+sales3=next(e)
+sales4=next(e)
+print(sales1,sales2,sales3,sales4,sep='\n')
