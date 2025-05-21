@@ -1,0 +1,12 @@
+import re
+
+m=re.match(r'py','python')
+print(m)
+m=re.match(r'jy','python')
+print(m)
+m=re.match(r'py','jython python')
+print(m)
+m=re.match(r'py','PYTHON')
+print(m)
+m=re.match(r'py','PYTHON',re.IGNORECASE)
+print(m)
