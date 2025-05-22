@@ -1,0 +1,7 @@
+import re
+
+str1="python1 python2 python3"
+A=re.findall(r'[0-9]',str1)
+print(A)
+B=re.findall(r'[a-z]',str1)
+print(B)

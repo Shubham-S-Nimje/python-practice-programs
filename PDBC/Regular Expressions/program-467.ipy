@@ -1,0 +1,7 @@
+import re
+
+str1="python"
+m=re.search(r'^py',str1)
+print(m)
+m=re.search(r'^py',"jpython")
+print(m)

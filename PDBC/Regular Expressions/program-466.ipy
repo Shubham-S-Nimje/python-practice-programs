@@ -1,0 +1,16 @@
+import re
+
+str1="python oracle java python java"
+A=re.findall(r'a',str1)
+print(A)
+B=re.findall(r'.',str1)
+print(B)
+C=re.findall(r'.a',str1)
+print(C)
+D=re.findall(r'.a.',str1)
+print(D)
+str2="python\noracle\njava"
+E=re.findall(r'.',str2)
+print(E)
+F=re.findall(r'.',str2,re.DOTALL)
+print(F)

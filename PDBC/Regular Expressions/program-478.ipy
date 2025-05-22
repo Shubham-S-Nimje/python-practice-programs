@@ -1,0 +1,16 @@
+import re
+str1="date of joining 22-05-2025"
+m=re.search(r'([0-9]{2})-([0-9]{2})-([0-9]{4})',str1)
+print(m)
+print(m.group(0)) # type: ignore
+print(m.group(1)) # type: ignore
+print(m.group(2)) # type: ignore
+print(m.group(3)) # type: ignore
+
+str2="email address is naresh@nareshit.com"
+m=re.search(r'([a-zA-Z0-9]*)@([a-z]+\.[a-z]{2,3})',str2)
+if m!=None:
+    print(m)
+    print(m.group(0))
+    print(m.group(1))
+    print(m.group(2))

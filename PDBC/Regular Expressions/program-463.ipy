@@ -1,0 +1,5 @@
+import re
+
+str1="jython python oracle python java python"
+m=re.search(f'python',str1)
+print(m)

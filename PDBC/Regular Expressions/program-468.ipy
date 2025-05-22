@@ -1,0 +1,10 @@
+import re
+
+str1='''python is language
+python is scripting language
+python is high level language
+python is general language
+jpython is implementation of java'''
+
+A=re.findall(r'^py',str1,re.MULTILINE)
+print(A)

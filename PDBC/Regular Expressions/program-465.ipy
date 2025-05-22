@@ -1,0 +1,7 @@
+import re
+
+str1="python"
+m=re.fullmatch(r'python',str1)
+print(m)
+m=re.fullmatch(r'jpython',str1)
+print(m)

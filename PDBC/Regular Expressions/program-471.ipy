@@ -1,0 +1,10 @@
+import re
+
+names_list=["naresh","suresh","ramesh","kiran","raman",
+            "rajesh"]
+
+
+for name in names_list:
+    m=re.fullmatch(r'^r.*h$',name)
+    if m!=None:
+        print(name)
