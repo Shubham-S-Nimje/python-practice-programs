@@ -1,0 +1,9 @@
+import re
+
+str1="current time 09:20:40"
+m=re.search(r'(\d{2}):(\d{2}):(\d{2})',str1)
+print(m)
+print(m.group(0)) # type: ignore
+print(m.group(1)) # type: ignore
+print(m.group(2)) # type: ignore
+print(m.group(3)) # type: ignore

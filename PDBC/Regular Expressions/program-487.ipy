@@ -1,0 +1,10 @@
+# Password validation
+import re
+password=input("Password :")
+a=re.findall(r'[a-zA-Z]',password)
+b=re.findall(r'\d',password)
+c=re.findall(r'\W',password)
+if len(a)==4 and len(b)==2 and len(c)==2:
+    print("valid password pattern")
+else:
+    print("invalid password pattern")

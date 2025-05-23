@@ -1,0 +1,8 @@
+# Name Validation
+import re
+name=input("Name :")
+list1=re.findall(r'\S',name)
+if len(list1)==len(name):
+    print(name,"valid")
+else:
+    print("space character not allowed")

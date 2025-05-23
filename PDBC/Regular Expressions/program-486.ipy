@@ -1,0 +1,9 @@
+# username validation
+import re
+
+uname=input("UserName :")
+m=re.fullmatch(r'\w{8,15}',uname)
+if m!=None:
+    print(f'{uname} valid')
+else:
+    print(f'{uname} is invalid')

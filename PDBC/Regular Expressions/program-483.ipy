@@ -1,0 +1,7 @@
+import re
+
+str1="python 3.13.3"
+list1=re.findall(r'\D',str1)
+print(list1)
+list2=re.findall(r'\d',str1)
+print(list2)

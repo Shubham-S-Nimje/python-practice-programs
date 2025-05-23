@@ -1,0 +1,7 @@
+import re
+
+str1="naresh suresh\tramesh\vrajesh\nkishore"
+list1=re.split(r'\s',str1)
+print(list1)
+list2=re.findall(r'\s',str1)
+print(list2)

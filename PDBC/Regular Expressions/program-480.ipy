@@ -1,0 +1,5 @@
+import re
+
+str1="python py pypy py! py. jpyhton"
+list1=re.findall(r'\bpy\b',str1)
+print(list1)
