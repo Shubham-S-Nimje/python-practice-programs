@@ -1,59 +1,67 @@
-import tkinter
-import mysql.connector
-import tkinter.messagebox
-
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
-
-cn=mysql.connector.connect(database= os.getenv('MYSQL_NAME'),
-                   user= os.getenv('MYSQL_USER'),
-                   password= os.getenv('MYSQL_PASSWORD'),
-                   host= os.getenv('MYSQL_HOST'),
-                   port= os.getenv('MYSQL_PORT'))
-
-print("connection established...")
-
-c=cn.cursor()
-
-window=tkinter.Tk()
-window.title("Login")
-
-l1=tkinter.Label(window,text="UserName",font=("Arial",20))
-l2=tkinter.Label(window,text="Password",font=("Arial",20))
-
-e1=tkinter.Entry(window,width=15,font=("Arial",20))
-e2=tkinter.Entry(window,width=15,font=("Arial",20),show="$")
-
-def login():
-    username=e1.get()
-    password=e2.get()
-    cmd="select * from user_register where username=%s and password=%s"
-    c.execute(cmd,params=(username,password))
-    row=c.fetchone()
-    if row==None:
-        tkinter.messagebox.showinfo(title="info",message="Invalid username or password")
-    else:
-        tkinter.messagebox.showinfo(title="info",message=f'{username} welcome')
-        window.destroy()
-        w1=tkinter.Tk()
-        w1.title("Transaction")
-        w1.geometry("300x300")
-    
-
-def close():
-    window.destroy()
-
-
-b1=tkinter.Button(window,text="Login",font=("Arial",20),command=login)
-b2=tkinter.Button(window,text="Close",font=("Arial",20),command=close)
-
-l1.grid(row=1,column=1)
-l2.grid(row=2,column=1)
-e1.grid(row=1,column=2)
-e2.grid(row=2,column=2)
-b1.grid(row=3,column=1)
-b2.grid(row=3,column=2)
-
-window.mainloop()
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "6f5516da",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Server is Running\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Server Program\n",
+    "import socket\n",
+    "\n",
+    "s=socket.socket()\n",
+    "s.bind((\"localhost\",60))\n",
+    "s.listen(5)\n",
+    "print(\"Server is Running\")\n",
+    "s.accept()\n",
+    "print(\"Connection Established\")\n",
+    "s.close()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "51e0951a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Client Program\n",
+    "\n",
+    "import socket\n",
+    "s=socket.socket()\n",
+    "s.connect((\"localhost\",60))\n",
+    "s.close()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": ".venv",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

@@ -1,65 +1,67 @@
-import tkinter
-import mysql.connector
-import tkinter.messagebox
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
-
-cn=mysql.connector.connect(database= os.getenv('MYSQL_NAME'),
-                   user= os.getenv('MYSQL_USER'),
-                   password= os.getenv('MYSQL_PASSWORD'),
-                   host= os.getenv('MYSQL_HOST'),
-                   port= os.getenv('MYSQL_PORT'))
-
-print("connection established...")
-
-c=cn.cursor()
-window=tkinter.Tk()
-window.title("User Register")
-window.geometry("400x300+300+200")
-window['bg']="green"
-
-lbl1=tkinter.Label(window,text="Name",font=("Arial",15),fg="red",bg="green")
-lbl2=tkinter.Label(window,text="UserName",font=("Arial",15),fg="red",bg="green")
-lbl3=tkinter.Label(window,text="Password",font=("Arial",15),fg="red",bg="green")
-
-lbl1.place(x=80,y=50)
-lbl2.place(x=80,y=100)
-lbl3.place(x=80,y=150)
-
-e1=tkinter.Entry(window,width=15,font=("Arial",15),fg="blue")
-e2=tkinter.Entry(window,width=15,font=("Arial",15),fg="blue")
-e3=tkinter.Entry(window,width=15,font=("Arial",15),fg="blue",show='*')
-
-e1.place(x=200,y=50)
-e2.place(x=200,y=100)
-e3.place(x=200,y=150)
-
-def register():
-    name=e1.get()
-    uname=e2.get()
-    pwd=e3.get()
-    cmd="insert into user_register values(%s,%s,%s)"
-    try:
-        c.execute(cmd,params=(name,uname,pwd))
-        tkinter.messagebox.showinfo(title="info",message="User Registered")
-        cn.commit()
-        e1.delete(0,tkinter.END)
-        e2.delete(0,tkinter.END)
-        e3.delete(0,tkinter.END)
-    except Exception as e:
-        print("Registration Error:", e)
-        tkinter.messagebox.showerror(title="error",message="Error in register")
-        
-def close():
-    window.destroy()
-    
-
-b1=tkinter.Button(window,text="Register",font=("Arial",15),command=register)
-b2=tkinter.Button(window,text="Close",font=("Arial",15),command=close)
-
-b1.place(x=80,y=200)
-b2.place(x=200,y=200)
-
-window.mainloop()
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "6f5516da",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Server is Running\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Server Program\n",
+    "import socket\n",
+    "\n",
+    "s=socket.socket()\n",
+    "s.bind((\"localhost\",60))\n",
+    "s.listen(5)\n",
+    "print(\"Server is Running\")\n",
+    "s.accept()\n",
+    "print(\"Connection Established\")\n",
+    "s.close()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "51e0951a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Client Program\n",
+    "\n",
+    "import socket\n",
+    "s=socket.socket()\n",
+    "s.connect((\"localhost\",60))\n",
+    "s.close()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": ".venv",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
